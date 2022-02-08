@@ -1,6 +1,5 @@
 # My Terraform scripts
 ## Scripts List:
-***
 ###
 * 001_Create-instance
 * 002_DockerServer_instance
