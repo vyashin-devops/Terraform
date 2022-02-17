@@ -37,7 +37,4 @@ jobs:
     
     # Go to Terraform Script
     - name: CD to folder 001_Create-instance
-      run: cd ./001_Create-instance/
-    
-    - name: PWD
-      run: pwd
+      run: terraform init ./001_Create-instance/
