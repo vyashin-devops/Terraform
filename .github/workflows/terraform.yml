@@ -23,10 +23,10 @@ jobs:
 
     # Install the latest version of Terraform CLI
     - name: Setup Terraform
-        run: sudo apt-get update && sudo apt-get install -y gnupg software-properties-common curl \
-        curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add - \
-        sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main" \
-        sudo apt-get update && sudo apt-get install terraform
+        run: sudo apt-get update && sudo apt-get install -y gnupg software-properties-common curl
+        run: curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
+        run: sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
+        run: sudo apt-get update && sudo apt-get install terraform
     # Test Terraform
     - name: Test Terraform version
         run: terraform --version
