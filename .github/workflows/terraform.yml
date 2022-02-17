@@ -34,4 +34,10 @@ jobs:
     # Test Terraform
     - name: Test Terraform version
       run: terraform --version
-        
+    
+    # Go to Terraform Script
+    - name: CD to folder 001_Create-instance
+      run: cd 001_Create-instance\
+    
+    - name: PWD
+    - run: pwd
