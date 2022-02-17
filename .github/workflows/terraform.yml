@@ -36,7 +36,5 @@ jobs:
       run: terraform --version
     
     # Go to Terraform Script
-    - name: chdir to folder 001_Create-instance
-      with:
-        working-dir: ./
-        run: pwd
+    - name: Start TERRAFORM INIT in 001_Create-instance
+      run: terraform -chdir=./001_Create-instance init
