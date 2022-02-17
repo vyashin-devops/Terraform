@@ -1,0 +1,33 @@
+name: 'Terraform'
+
+on:
+  push:
+    branches:
+    - main
+
+jobs:
+  terraform:
+    name: 'Terraform'
+    runs-on: ubuntu-latest
+    environment: production
+
+    # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
+    defaults:
+      run:
+        shell: bash
+
+    steps:
+    # Checkout the repository to the GitHub Actions runner
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    # Install the latest version of Terraform CLI
+    - name: Setup Terraform
+        run: sudo apt-get update && sudo apt-get install -y gnupg software-properties-common curl \
+             curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add - \
+             sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main" \ 
+             sudo apt-get update && sudo apt-get install terraform
+    # Test Terraform
+    - name: Test Terraform version
+        run: terraform --version
+        
