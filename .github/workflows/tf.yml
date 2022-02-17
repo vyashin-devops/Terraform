@@ -30,8 +30,8 @@ jobs:
       run: terraform validate
 
     - name: Terraform apply
-#       env:
-#         access_key: ${{ secrets.ACCESS_KEY }}
-#         secret_key: ${{ secrets.SECRET_KEY }}
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.SECRET_KEY }}
       run: terraform apply -auto-approve -input=false
       working-directory: ${{ env.working-directory }}
