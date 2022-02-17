@@ -24,8 +24,8 @@ jobs:
       
     - name: Terraform init
       env:
-        ACCESS_KEY: ${{ secrets.ACCESS_KEY }}
-        SECRET_KEY: ${{ secrets.SECRET_KEY }}
+        access_key: ${{ secrets.ACCESS_KEY }}
+        secret_key: ${{ secrets.SECRET_KEY }}
       run: terraform init -input=false
       working-directory: ${{ env.working-directory }}
 
@@ -34,7 +34,7 @@ jobs:
 
     - name: Terraform apply
       env:
-        ACCESS_KEY: ${{ secrets.ACCESS_KEY }}
-        SECRET_KEY: ${{ secrets.SECRET_KEY }}
+        access_key: ${{ secrets.ACCESS_KEY }}
+        secret_key: ${{ secrets.SECRET_KEY }}
       run: terraform apply -auto-approve -input=false
       working-directory: ${{ env.working-directory }}
