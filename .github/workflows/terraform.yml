@@ -24,8 +24,11 @@ jobs:
     # Install the latest version of Terraform CLI
     - name: Setup Terraform
       run: sudo apt-get update && sudo apt-get install -y gnupg software-properties-common curl
+    - name: Add the HashiCorp GPG key.  
       run: curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
+    - name: Add the official HashiCorp Linux repository.  
       run: sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
+    - name: Update to add the repository, and install the Terraform CLI.  
       run: sudo apt-get update && sudo apt-get install terraform
     
     # Test Terraform
