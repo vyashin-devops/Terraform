@@ -5,12 +5,14 @@ on: [push]
 jobs:
   terraform_apply:
     runs-on: ubuntu-latest
+    env: 
+      working-directory: ./001_Create-instance
     steps:
     - uses: actions/checkout@v1
 
     - name: Install Terraform
       env:
-        TERRAFORM_VERSION: "0.12.15"
+        TERRAFORM_VERSION: "1.1.6"
       run: |
         tf_version=$TERRAFORM_VERSION
         wget https://releases.hashicorp.com/terraform/"$tf_version"/terraform_"$tf_version"_linux_amd64.zip
@@ -22,17 +24,17 @@ jobs:
       
     - name: Terraform init
       env:
-        working-directory: ./001_Create-instance
         ACCESS_KEY: ${{ secrets.ACCESS_KEY }}
         SECRET_KEY: ${{ secrets.SECRET_KEY }}
       run: terraform init -input=false
       working-directory: ${{ env.working-directory }}
 
-#     - name: Terraform validation
-#       run: terraform validate
+    - name: Terraform validation
+      run: terraform validate
 
-#     - name: Terraform apply
-#       env:
-#         ACCESS_KEY: ${{ secrets.ACCESS_KEY }}
-#         SECRET_KEY: ${{ secrets.SECRET_KEY }}
-#       run: terraform apply -auto-approve -input=false
+    - name: Terraform apply
+      env:
+        ACCESS_KEY: ${{ secrets.ACCESS_KEY }}
+        SECRET_KEY: ${{ secrets.SECRET_KEY }}
+      run: terraform apply -auto-approve -input=false
+      working-directory: ${{ env.working-directory }}
