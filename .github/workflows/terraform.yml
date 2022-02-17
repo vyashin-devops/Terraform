@@ -37,6 +37,6 @@ jobs:
     
     # Go to Terraform Script
     - name: chdir to folder 001_Create-instance
-      run: terraform -chdir=./001_Create-instance/
-    - name: pwd
-      run: pwd
+      with:
+        working-dir: ./
+        run: pwd
