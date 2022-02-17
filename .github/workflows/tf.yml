@@ -23,9 +23,6 @@ jobs:
       run: terraform --version
       
     - name: Terraform init
-      env:
-        access_key: ${{ secrets.ACCESS_KEY }}
-        secret_key: ${{ secrets.SECRET_KEY }}
       run: terraform init -input=false
       working-directory: ${{ env.working-directory }}
 
@@ -33,8 +30,11 @@ jobs:
       run: terraform validate
 
     - name: Terraform apply
-      env:
-        access_key: ${{ secrets.ACCESS_KEY }}
-        secret_key: ${{ secrets.SECRET_KEY }}
+      run: |
+        export access_key: ${{ secrets.ACCESS_KEY }}
+        export secret_key: ${{ secrets.SECRET_KEY }}
+#       env:
+#         access_key: ${{ secrets.ACCESS_KEY }}
+#         secret_key: ${{ secrets.SECRET_KEY }}
       run: terraform apply -auto-approve -input=false
       working-directory: ${{ env.working-directory }}
