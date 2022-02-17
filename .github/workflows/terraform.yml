@@ -38,3 +38,6 @@ jobs:
     # Go to Terraform Script
     - name: Start TERRAFORM INIT in 001_Create-instance
       run: terraform -chdir=./001_Create-instance init
+        with:
+          access_key: ${{ secrets.ACCESS_KEY }}
+          secret_key: ${{ secrets.SECRET_KEY }}
