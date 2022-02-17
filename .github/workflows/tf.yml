@@ -18,9 +18,7 @@ jobs:
         sudo mv terraform /usr/local/bin/
         
     - name: Verify Terraform version
-      run: |
-        pwd
-        terraform --version
+      run: terraform --version
       
     - name: Terraform init
       env:
@@ -28,6 +26,7 @@ jobs:
         ACCESS_KEY: ${{ secrets.ACCESS_KEY }}
         SECRET_KEY: ${{ secrets.SECRET_KEY }}
       run: terraform init -input=false
+      working-directory: ${{ env.working-directory }}
 
 #     - name: Terraform validation
 #       run: terraform validate
