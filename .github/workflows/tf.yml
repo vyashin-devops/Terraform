@@ -33,8 +33,5 @@ jobs:
       run: |
         export access_key: ${{ secrets.ACCESS_KEY }}
         export secret_key: ${{ secrets.SECRET_KEY }}
-#       env:
-#         access_key: ${{ secrets.ACCESS_KEY }}
-#         secret_key: ${{ secrets.SECRET_KEY }}
-      run: terraform apply -auto-approve -input=false
+        terraform apply -auto-approve -input=false
       working-directory: ${{ env.working-directory }}
