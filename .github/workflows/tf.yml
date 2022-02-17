@@ -24,7 +24,7 @@ jobs:
       env:
         ACCESS_KEY: ${{ secrets.ACCESS_KEY }}
         SECRET_KEY: ${{ secrets.SECRET_KEY }}
-      run: terraform -chdir 001_Create-instance init -input=false
+      run: terraform -chdir=/001_Create-instance/ init -input=false
 
 #     - name: Terraform validation
 #       run: terraform validate
