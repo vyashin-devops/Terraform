@@ -10,4 +10,4 @@
 003_Web_instance_data - creates instance in AWS - WEB-server (configure in data file) </br>
 
 ***
-<img src="https://github.com/vyashin-devops/Terraform/Terraform Apply 001_Create-instance/badge.svg?branch=main">
+<img src="https://github.com/vyashin-devops/Terraform/Terraform Apply 001_Create-instance/badge.svg?branch=001_main">
