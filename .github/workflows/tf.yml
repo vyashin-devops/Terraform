@@ -3,13 +3,13 @@ name: Terraform Apply 001_Create-instance
 on: 
   push:
     branches:
-      - 001_main
+      - branch_name
 
 jobs:
   terraform_apply:
     runs-on: ubuntu-latest
     env: 
-      working-directory: ./001_Create-instance
+      working-directory: ./<FOLDER_NAME>
     steps:
     - uses: actions/checkout@v1
 
