@@ -1,4 +1,4 @@
-name: Terraform Apply
+name: 001_Create-instance
 
 on:
   push:
